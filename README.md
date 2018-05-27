@@ -132,8 +132,10 @@ See `aquatone-scan --help` for more options.
 The final stage is the gathering part where the results of the discovery and scanning stages are used to query the discovered web services in order to retrieve and save HTTP response headers and HTML bodies, as well as taking screenshots of how the web pages look like in a web browser to make analysis easier. The screenshotting is done with the [Nightmare.js] Node.js library. This library will be installed automatically if it's not present in the system.
 
     $ aquatone-gather --domain example.com
+    $ xvfb-run aquatone-gather --domain example.com
 
 aquatone-gather will look for `hosts.json` and `open_ports.txt` in the given domain's AQUATONE assessment directory and request and screenshot every IP address for each domain name for maximum coverage.
+You have to use xvfb-run to run the aquatone-gather, if not, it will throw the X11 session error.
 
 #### Tuning
 
